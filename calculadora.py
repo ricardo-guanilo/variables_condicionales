@@ -23,7 +23,6 @@ else:
         {n1}, {n2}''')
     # Tranformamos a número las cadenas n1 y n2
     else:
-
         a=float(n1) 
         b=float(n2)
         match operacion:
