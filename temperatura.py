@@ -14,18 +14,18 @@ try:
     3. Kelvin (°K)
     ''')
     print(f"{'':*^90}")
-    # Transformación de cadena a número para saltar errores de tipo de dato
+    # Transformación de cadena a número para saltar errores de tipo de dato de ser necesario.
     temp_inicial = float(temp_inicial)
     origen = int(origen)
     destino = int(destino)
 except:
     print(f'''ERROR: indique valores adecuados.
 Temperatura (número real): {temp_inicial}
-Origen (1,2,3): {origen}
-Destino (1,2,3): {destino}''')
+Origen (1, 2, 3): {origen}
+Destino (1, 2, 3): {destino}''')
 else:
-    if origen in range(1,4) and destino in range(1,4):
-        match origen:
+    if origen in range(1,4) and destino in range(1,4): # Verifica si los codigos están entre 1 y 3, sino salta error.
+        match origen: # Cruce de cada caso de destino y origen con fórmulas correspondientes de conversión, (1,1), (1,2), ... (3,3).
             case 1:
                 inicio = '°C'
                 match destino:
@@ -53,16 +53,13 @@ else:
                         fin, temp_final = '°F', ((temp_inicial - 273.15) * 1.8) + 32
                     case 3:
                         fin, temp_final = '°K', temp_inicial
-            case _:
-                print(f'Ingrese un valor adecuado de origen (1,2,3), valor actual: {origen}')
-
-        print(f''' Conversión realizada de {temp_inicial}{inicio} a {temp_final}{fin}
+        print(f''' Conversión realizada de {temp_inicial:.2f}{inicio} a {temp_final:.2f}{fin}
 {'':*^90}''')
-    elif origen in range(1,4):
-        print(f'Ingrese un valor adecuado de destino (1,2,3), valor actual: {destino}')
-    elif destino in range(1,4):
-        print(f'Ingrese un valor adecuado de origen (1,2,3), valor actual: {origen}')
+    elif origen in range(1,4): # Error en destino pero no origen
+        print(f'Ingrese un valor adecuado de destino (1, 2, 3), valor actual: {destino}')
+    elif destino in range(1,4): # Error en origen pero no en destino
+        print(f'Ingrese un valor adecuado de origen (1, 2, 3), valor actual: {origen}')
     else:
-        print(f'''Ingrese valores adecuados para origen y destino (1,2,3), valores actuales:
+        print(f'''Ingrese valores adecuados para origen y destino (1, 2, 3), valores actuales:
 Origen: {origen}
 Destino: {destino}''')
