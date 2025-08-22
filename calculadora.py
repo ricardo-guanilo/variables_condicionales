@@ -8,24 +8,22 @@ operacion = input(f'''{'':*^90}
 {'':*^90}
 ''')
 print(f'{'':*^90}')
-if operacion not in ['1','2','3','4']:
-    print(f'ERROR: ingrese un número valido (1,2,3,4), valor ingresado actualmente: {operacion}')
+if operacion != '1' and operacion != '2' and operacion != '3' and operacion != '4': # Verificar si el valor dado no es ninguno de los códigos disponibles. 
+    print(f'ERROR: ingrese un número valido (1, 2, 3, 4), valor ingresado actualmente: {operacion}')
 else:
     n1 = input('Ingrese el primer número: ')
     n2 = input('Ingrese el segundo número: ')
     print(f'{'':*^90}')
-
-    # Verificamos si n1 y n2 son enteros
-    try: 
+    try: # Verificación si n1 y n2 son enteros.
         temp = int(n1) + int(n2)
-    except ValueError:
+    except:
         print(f'''ERROR: Ingrese un número real, valores ingresados actualmente:
         {n1}, {n2}''')
-    # Tranformamos a número las cadenas n1 y n2
+    # Tranformamos a número las cadenas n1 y n2.
     else:
         a=float(n1) 
         b=float(n2)
-        match operacion:
+        match operacion: # Aplicación de la operación correspondiente según el código dado por el usuario.
             case '1':
                 operacion = 'Suma'
                 print(f'Se realizo la operación {operacion.lower()}: {a} + {b} = {a+b:.2f}')
