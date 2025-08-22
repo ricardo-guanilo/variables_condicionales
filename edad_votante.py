@@ -8,6 +8,7 @@ try:
     4. Corea del Sur
     5. Japón
     ''')
+    edad = int(edad) #Verificar si la edad es entera para saltar error de ser necesario.
     pais = int(pais) #Verificar si el código es entero para saltar error de ser necesario.
 except:
     print(f'''ERROR: Ingrese un código de país adecuado.
