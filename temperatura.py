@@ -25,7 +25,7 @@ Origen (1, 2, 3): {origen}
 Destino (1, 2, 3): {destino}''')
 else:
     if origen in range(1,4) and destino in range(1,4): # Verifica si los codigos están entre 1 y 3, sino salta error.
-        match origen: # Cruce de cada caso de destino y origen con fórmulas correspondientes de conversión, (1,1), (1,2), ... (3,3).
+        match origen: # Cruce de cada caso de destino y origen con fórmulas correspondientes de conversión, (1,1), (1,2) ... (3,3).
             case 1:
                 inicio = '°C'
                 match destino:
@@ -63,3 +63,4 @@ else:
         print(f'''Ingrese valores adecuados para origen y destino (1, 2, 3), valores actuales:
 Origen: {origen}
 Destino: {destino}''')
+
