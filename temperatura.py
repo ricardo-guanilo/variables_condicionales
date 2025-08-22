@@ -1,66 +1,70 @@
 try:
     print(f"{'':*^90}")
     temp_inicial = input("Ingrese la temperatura: ")
-    print(f"{'':*^90}")
-    origen = input(f'''Ingrese la escala de Origen:
-    1. Celcius (°C)
-    2. Farenheit (°F)
-    3. Kelvin (°K)
-    ''')
-    print(f"{'':*^90}")
-    destino = input('''Ingrese la escala de Destino:
-    1. Celcius (°C)
-    2. Farenheit (°F)
-    3. Kelvin (°K)
-    ''')
-    print(f"{'':*^90}")
-    # Transformación de cadena a número para saltar errores de tipo de dato de ser necesario.
     temp_inicial = float(temp_inicial)
-    origen = int(origen)
-    destino = int(destino)
+    print(f"{'':*^90}")
 except:
     print(f'''ERROR: indique valores adecuados.
-Temperatura (número real): {temp_inicial}
-Origen (1, 2, 3): {origen}
-Destino (1, 2, 3): {destino}''')
+Temperatura (número real): {temp_inicial}''')
 else:
-    if origen in range(1,4) and destino in range(1,4): # Verifica si los codigos están entre 1 y 3, sino salta error.
-        match origen: # Cruce de cada caso de destino y origen con fórmulas correspondientes de conversión, (1,1), (1,2) ... (3,3).
-            case 1:
-                inicio = '°C'
-                match destino:
+    try:
+        origen = input(f'''Ingrese la escala de Origen:
+        1. Celcius (°C)
+        2. Farenheit (°F)
+        3. Kelvin (°K)
+        ''')
+        origen = int(origen)
+    except:
+        print(f'''ERROR: indique valores adecuados.
+Origen (1, 2, 3): {origen}''')
+    else:
+        try:    
+            print(f"{'':*^90}")
+            destino = input('''Ingrese la escala de Destino:
+        1. Celcius (°C)
+        2. Farenheit (°F)
+        3. Kelvin (°K)
+        ''')
+            destino = int(destino)
+            print(f"{'':*^90}")
+            # Transformación de cadena a número para saltar errores de tipo de dato de ser necesario.
+        except:
+            print(f'''ERROR: indique valores adecuados.
+        Destino (1, 2, 3): {destino}''')
+        else:
+            if origen in range(1,4) and destino in range(1,4): # Verifica si los codigos están entre 1 y 3, sino salta error.
+                match origen: # Cruce de cada caso de destino y origen con fórmulas correspondientes de conversión, (1,1), (1,2) ... (3,3).
                     case 1:
-                        fin, temp_final = '°C',temp_inicial 
+                        inicio = '°C'
+                        match destino:
+                            case 1:
+                                fin, temp_final = '°C',temp_inicial 
+                            case 2:
+                                fin, temp_final = '°F', (temp_inicial * 1.8) + 32
+                            case 3:
+                                fin, temp_final = '°K', (temp_inicial + 273.15)
                     case 2:
-                        fin, temp_final = '°F', (temp_inicial * 1.8) + 32
+                        inicio = '°F'
+                        match destino:
+                            case 1:
+                                fin, temp_final = '°C', (temp_inicial - 32) / 1.8
+                            case 2:
+                                fin, temp_final = '°F', temp_inicial
+                            case 3:
+                                fin, temp_final = '°K', ((temp_inicial - 32) / 1.8) + 273.15
                     case 3:
-                        fin, temp_final = '°K', (temp_inicial + 273.15)
-            case 2:
-                inicio = '°F'
-                match destino:
-                    case 1:
-                        fin, temp_final = '°C', (temp_inicial - 32) / 1.8
-                    case 2:
-                        fin, temp_final = '°F', temp_inicial
-                    case 3:
-                        fin, temp_final = '°K', ((temp_inicial - 32) / 1.8) + 273.15
-            case 3:
-                inicio = '°K'
-                match destino:
-                    case 1:
-                        fin, temp_final = '°C', (temp_inicial - 273.15)
-                    case 2:
-                        fin, temp_final = '°F', ((temp_inicial - 273.15) * 1.8) + 32
-                    case 3:
-                        fin, temp_final = '°K', temp_inicial
-        print(f''' Conversión realizada de {temp_inicial:.2f}{inicio} a {temp_final:.2f}{fin}
+                        inicio = '°K'
+                        match destino:
+                            case 1:
+                                fin, temp_final = '°C', (temp_inicial - 273.15)
+                            case 2:
+                                fin, temp_final = '°F', ((temp_inicial - 273.15) * 1.8) + 32
+                            case 3:
+                                fin, temp_final = '°K', temp_inicial
+                print(f''' Conversión realizada de {temp_inicial:.2f}{inicio} a {temp_final:.2f}{fin}
 {'':*^90}''')
-    elif origen in range(1,4): # Error en destino pero no origen
-        print(f'Ingrese un valor adecuado de destino (1, 2, 3), valor actual: {destino}')
-    elif destino in range(1,4): # Error en origen pero no en destino
-        print(f'Ingrese un valor adecuado de origen (1, 2, 3), valor actual: {origen}')
-    else: # Error en ambos valores
-        print(f'''Ingrese valores adecuados para origen y destino (1, 2, 3), valores actuales:
-Origen: {origen}
-Destino: {destino}''')
+            else: # Error en algún valor
+                print(f'''Ingrese valores adecuados para origen y destino (1, 2, 3), valores actuales:
+    Origen: {origen}
+    Destino: {destino}''')
 
