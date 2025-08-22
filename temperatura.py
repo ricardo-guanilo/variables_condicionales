@@ -59,7 +59,7 @@ else:
         print(f'Ingrese un valor adecuado de destino (1, 2, 3), valor actual: {destino}')
     elif destino in range(1,4): # Error en origen pero no en destino
         print(f'Ingrese un valor adecuado de origen (1, 2, 3), valor actual: {origen}')
-    else:
+    else: # Error en ambos valores
         print(f'''Ingrese valores adecuados para origen y destino (1, 2, 3), valores actuales:
 Origen: {origen}
 Destino: {destino}''')

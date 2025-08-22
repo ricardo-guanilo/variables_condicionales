@@ -8,13 +8,13 @@ try:
     4. Corea del Sur
     5. Japón
     ''')
-    pais=int(pais) #Verificar si el código es entero para saltar error de ser necesario
+    pais = int(pais) #Verificar si el código es entero para saltar error de ser necesario.
 except:
     print(f'''ERROR: Ingrese un código de país adecuado.
     Códigos permitidos: 1, 2, 3, 4, 5.
     Código actual: {pais}''')
 else:
-    match pais:
+    match pais: # Casos según código de país correspondiente.
         case 1:
             nombre_pais = 'Perú'
             if(int(edad)>=17):
@@ -45,7 +45,7 @@ else:
                 print('Usted puede votar')
             else:
                 print(f'Usted no puede votar, la edad mínima para votar en {nombre_pais} es 18, su edad es {edad}')
-        case _:
+        case _: # Se ha ingresado un código no indicado.
                 print(f'''ERROR: Ingrese un código de país adecuado.
     Códigos permitidos: 1, 2, 3, 4, 5.
     Código actual: {pais}''') 
