@@ -8,7 +8,7 @@ try:
     3. Kelvin (°K)
     ''')
     print(f"{'':*^90}")
-    destino = input('''Ingrese la escala de Origen:
+    destino = input('''Ingrese la escala de Destino:
     1. Celcius (°C)
     2. Farenheit (°F)
     3. Kelvin (°K)
