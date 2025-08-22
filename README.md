@@ -1,5 +1,6 @@
 --calculadora.py--
 Ingrese un número correspondiente a la operación que desee realizar
+
 Ingrese los dos números a operar
 Ejemplo:
 ******************************************************************************************
