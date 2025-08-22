@@ -1,7 +1,7 @@
 
 try:
     edad = input('Ingrese su edad: ')
-    pais = input('''Ingrese su país de residencia:
+    pais = input('''Ingrese el código según su país de residencia:
     1. Perú
     2. Colombia
     3. Argentina
